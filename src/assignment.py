@@ -111,7 +111,7 @@ if __name__ == '__main__':
             except Exception as d:  #if the shoulder joint is less than the wrist joint, it essentially means the hand is up
                 hand_up = False
             if hand_up:
-                hail_taxi(image)    #image will show the text 'taxi' if hand is above as we are calling the 'hail_taxi' function
+                hail_taxi(image)    #image will show the text 'taxi' if hand is above as we are calling the 'hail_taxi' function.
             
             try:
                 hand_up = human.body_parts[7].y < human.body_parts[5].y
