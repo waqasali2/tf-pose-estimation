@@ -123,7 +123,7 @@ if __name__ == '__main__':
             # Debugging statement: remove before demonstration.
             # print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
 
-        # drawing lines on an image
+        # drawing lines on an image.
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
 
         # FPS counter
