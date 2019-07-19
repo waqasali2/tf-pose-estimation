@@ -106,7 +106,19 @@ if __name__ == '__main__':
 
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-            hail_taxi(image)
+            try:
+                hand_up = human.body_parts[4].y < human.body_parts[2].y  #calling the specific y value for the wrist joint and the shoulder joint
+            except Exception as d:  #if the shoulder joint is less than the wrist joint, it essentially means the hand is up
+                hand_up = False
+            if hand_up:
+                hail_taxi(image)    #image will show the text 'taxi' if hand is above as we are calling the 'hail_taxi' function
+            
+            try:
+                hand_up = human.body_parts[7].y < human.body_parts[5].y
+            except Exception as d:
+                hand_up = False
+            if hand_up:
+                hail_taxi(image)    #this is the same as above except for the left arm
 
             # Debugging statement: remove before demonstration.
             # print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
