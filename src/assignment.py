@@ -106,11 +106,11 @@ if __name__ == '__main__':
 
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-            try:
-                hand_up = human.body_parts[4].y < human.body_parts[2].y  #calling the specific y value for the wrist joint and the shoulder joint
-            except Exception as d:  #if the shoulder joint is less than the wrist joint, it essentially means the hand is up
+            try:    #test the following condition
+                hand_up = human.body_parts[4].y < human.body_parts[2].y  #calling the specific y value for the wrist joint and the shoulder joint,if the shoulder joint is less than the wrist joint, it essentially means the hand is up
+            except Exception as d:  #this command handles the exception for the above condition, if the wrist is value is greater than the shoulder (below shoulder) it becomes false
                 hand_up = False
-            if hand_up:
+            if hand_up:     #if command allows the the following function to run if it is true against the exception
                 hail_taxi(image)    #image will show the text 'taxi' if hand is above as we are calling the 'hail_taxi' function.
             
             try:
